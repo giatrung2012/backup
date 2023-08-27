@@ -17,4 +17,9 @@ bat
 ttf-jetbrains-mono-nerd
 gnome-shell-extension-appindicator
 ufw
+gtk-engine-murrine
+xdg-desktop-portal-gnome
+gnome-browser-connector
+telegram-desktop
+spotify-launcher
 

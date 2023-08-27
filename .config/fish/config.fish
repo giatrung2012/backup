@@ -34,3 +34,7 @@ set PATH /home/giatrung2012/.local/bin $PATH
 alias warp-on='sudo systemctl start warp-svc.service && warp-cli connect'
 alias warp-off='warp-cli disconnect && sudo systemctl stop warp-svc.service'
 
+# GNOME Night light
+alias light='gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature'
+alias get-light='gsettings get org.gnome.settings-daemon.plugins.color night-light-temperature'
+

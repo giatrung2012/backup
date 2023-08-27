@@ -18,6 +18,7 @@ sudo pacman -S - < ~/dotfiles/packages/core.txt --needed --noconfirm
 mkdir ~/tmp
 trash-put ~/{Documents,Pictures,Downloads,Music,Videos}
 ln -s /run/media/giatrung2012/Windows/Users/giatrung2012/{Documents,Pictures,Downloads,Music,Videos,workspace} ~/
+ln -s /run/media/giatrung2012/Windows/Users/giatrung2012/Pictures/Screenshots ~/
 
 # Disable bd prochot on startup and wakeup
 chmod +x ~/dotfiles/disable-bd-prochot/{boost-wakup,boost-wakup.sh,boost-startup.sh}
@@ -31,6 +32,9 @@ sudo systemctl enable boost-startup.service
 
 # NetworkManager
 echo -e "\n[device]\nwifi.scan-rand-mac-address=no" | sudo tee -a /etc/NetworkManager/NetworkManager.conf > /dev/null
+
+# NextDNS
+echo -e "DNS=45.90.28.0#endeavouros-16ab5a.dns.nextdns.io\nDNS=2a07:a8c0::#endeavouros-16ab5a.dns.nextdns.io\nDNS=45.90.30.0#endeavouros-16ab5a.dns.nextdns.io\nDNS=2a07:a8c1::#endeavouros-16ab5a.dns.nextdns.io\nDNSOverTLS=yes" | sudo tee -a /etc/systemd/resolved.conf > /dev/null
 
 # Paru
 git clone https://aur.archlinux.org/paru-bin.git ~/temp/paru-bin/
@@ -54,8 +58,7 @@ echo -e "\n# Fcitx5\nGTK_IM_MODULE=fcitx\nQT_IM_MODULE=fcitx\nXMODIFIERS=@im=fci
 sudo systemctl enable paccache.timer
 
 # Firewall
-sudo systemctl start ufw.service
-sudo systemctl enable ufw.service
+sudo systemctl enable --now ufw.service
 sudo ufw default deny
 sudo ufw allow from 192.168.0.0/24
 sudo ufw allow Deluge
@@ -75,4 +78,7 @@ omf install agnoster
 
 # Remove temp folder
 trash-put ~/tmp/
+
+# Systemd resolved
+sudo systemctl enable --now systemd-resolved.service
 

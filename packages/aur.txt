@@ -1,8 +1,9 @@
 authy
-microsoft-edge-stable-bin 
+brave-bin 
 aur-auto-vote-git 
-redshift-minimal 
 cloudflare-warp-bin 
-fish-fzf
 ttf-ms-fonts
+wps-office
+ttf-wps-fonts
+chatgpt-desktop-bin
 
